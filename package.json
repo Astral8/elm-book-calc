@@ -1,0 +1,22 @@
+{
+  "name": "elm-book-calc",
+  "version": "1.0.0",
+  "description": "Converts the # of Words into Pages and vice-versa.",
+  "main": "Main.elm",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Astral8/elm-book-calc.git"
+  },
+  "author": "Astral8",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Astral8/elm-book-calc/issues"
+  },
+  "homepage": "https://github.com/Astral8/elm-book-calc#readme",
+  "devDependencies": {
+    "elm-live": "^4.0.2"
+  }
+}
