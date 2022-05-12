@@ -1,20 +1,16 @@
 module Main exposing (main)
 
 -- imports
+import Html.Styled as Html
 import Browser
-import Html exposing (Html, h1, text)
-import Html.Attributes exposing (class, name, type_, for, value)
-import Html.Events exposing (onInput)
-import Html exposing (input)
-import Html exposing (label)
-import Html.Attributes exposing (href)
-import Html exposing (a)
-import Html exposing (section)
-import Html exposing (div)
-import Html exposing (h2)
-import Html exposing (p)
-import Html exposing (br)
 import Debug
+import Css exposing (..)
+import Css.Global
+import Html.Attributes exposing (class, name, type_, for, value)
+import Html.Styled.Events exposing (onInput)
+import Html.Styled.Attributes as Attr
+import Tailwind.Breakpoints as Breakpoints
+import Tailwind.Utilities as Tw
 
 -- Base Model
 type alias Model =
@@ -41,7 +37,7 @@ type Msg
     = PageToWord String
     | WordToPage String
 
--- Inputs
+-- Update based on Input
 update : Msg -> Model -> Model
 update msg model =
     case msg of
@@ -81,35 +77,35 @@ wordToPage word =
     word / 250.0
 
 -- HTML
-view : Model -> Html Msg
+view : Model -> Html.Html Msg
 view model =
-    section [ class "section" ]
-        [ div [ class "container" ]
-            [ h1 [ class "title" ] [ text "Book Calculator" ]
-            , h2 [class "subtitle"][
-                p [][text "Converts the amount of pages to words. Type in numbers in either field and it'll convert the other one for you automatically."]
-                , br [][]
+    Html.section [ Attr.css[Tw.bg_white, Tw.content_center]]
+        [ Html.div [ Attr.css [Tw.bg_white, Tw.items_center, Tw.align_middle, Tw.justify_center, Tw.content_center]]
+            [ Html.h1 [Attr.css [Tw.text_center, Tw.bg_green_400, Tw.text_blue_100]] [ Html.text "Book Calculator" ]
+            , Html.h2 [Attr.class "subtitle"][
+                Html.p [Attr.css[Tw.text_center]][Html.text "Converts the amount of pages to words. Type in numbers in either field and it'll convert the other one for you automatically."]
+                , Html.br [][]
             ]
-            , label [ for "page", class "label" ] [text "# of Pages:"]
-            , input
+            , Html.label [ Attr.for "page", Attr.class "label", Attr.css[Tw.justify_center] ] [Html.text "# of Pages:"]
+            , Html.input
                 (
-                  [ name "page"
-                  , type_ "text"
+                  [ Attr.name "page"
+                  , Attr.type_ "text"
                   , onInput PageToWord
-                  , value (viewPage model)
+                  , Attr.value (viewPage model)
                   ]
                   ++
                   getPageFieldValidOrNot model
                 )
                 []
-            , br[][]
-            , label [ for "word", class "label" ] [text "# of Words:"]
-            , input
+            , Html.br[][]
+            , Html.label [ Attr.for "word", Attr.class "label" ] [Html.text "# of Words:"]
+            , Html.input
                 (
-                  [ name "word"
-                  , type_ "text"
+                  [ Attr.name "word"
+                  , Attr.type_ "text"
                   , onInput WordToPage
-                  , value (viewWord model)
+                  , Attr.value (viewWord model)
                   ]
                   ++
                   getWordFieldValidOrNot model
@@ -117,13 +113,14 @@ view model =
                 []
             ]
         ]
+        
 
 -- Returns
 getPageFieldValidOrNot model =
     if model.pageFieldValid == True then
-        [class "input"]
+        [Attr.class "input"]
     else
-        [class "input is-danger"]
+        [Attr.class "input is-danger"]
 
 
 viewPage model =
@@ -134,9 +131,9 @@ viewPage model =
 
 getWordFieldValidOrNot model =
     if model.wordFieldValid == True then
-        [class "input"]
+        [Attr.class "input"]
     else
-        [class "input is-danger"]
+        [Attr.class "input is-danger"]
 
 viewWord model =
     if model.wordFieldValid == True then
@@ -149,6 +146,6 @@ main : Program () Model Msg
 main =
     Browser.sandbox
         { init = initialModel
-        , view = view
+        , view = view >> Html.toUnstyled
         , update = update
         }
