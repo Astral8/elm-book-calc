@@ -45,8 +45,8 @@ update msg model =
             case String.toFloat userInput of
                 Nothing -> 
                     { model
-                        | pageFieldValue = userInput
-                        , pageFieldValid = False}
+                        | pageFieldValue = "0"
+                        , pageFieldValid = True}
                 Just number ->
                     { model
                         | page = number
@@ -59,8 +59,8 @@ update msg model =
             case String.toFloat userInput of
                 Nothing ->
                     { model
-                        | wordFieldValid = False
-                        , wordFieldValue = userInput}
+                        | wordFieldValid = True
+                        , wordFieldValue = "0"}
                 Just number ->
                     { model 
                         | word = number
@@ -79,33 +79,35 @@ wordToPage word =
 -- HTML
 view : Model -> Html.Html Msg
 view model =
-    Html.section [ Attr.css[Tw.bg_white, Tw.content_center]]
-        [ Html.div [ Attr.css [Tw.bg_white, Tw.items_center, Tw.align_middle, Tw.justify_center, Tw.content_center]]
-            [ Html.h1 [Attr.css [Tw.text_center, Tw.bg_green_400, Tw.text_blue_100]] [ Html.text "Book Calculator" ]
+    Html.section [ Attr.css[Tw.min_h_screen, Tw.my_0, Tw.bg_blue_100]]
+        [ Html.div [ Attr.css [Tw.my_0, Tw.min_h_screen, Tw.flex, Tw.flex_col, Tw.items_center, Tw.align_text_top,Tw.justify_center]]
+            [ Html.h1 [Attr.css [Tw.font_sans, Tw.rounded_full, Tw.w_52,Tw.divide_black, Tw.shadow,Tw.my_0,Tw.text_center, Tw.bg_blue_500, Tw.text_blue_100]] [ Html.text " Book Calculator " ]
             , Html.h2 [Attr.class "subtitle"][
-                Html.p [Attr.css[Tw.text_center]][Html.text "Converts the amount of pages to words. Type in numbers in either field and it'll convert the other one for you automatically."]
+                Html.p [Attr.css[Tw.text_center, Tw.font_sans]][Html.text "Converts the amount of pages to words. Type in numbers in either field and it'll convert the other one for you automatically."]
                 , Html.br [][]
             ]
-            , Html.label [ Attr.for "page", Attr.class "label", Attr.css[Tw.justify_center] ] [Html.text "# of Pages:"]
+            , Html.label [ Attr.for "page", Attr.class "label", Attr.css[Tw.text_center, Tw.font_sans] ] [Html.text "# of Pages:"]
             , Html.input
                 (
                   [ Attr.name "page"
                   , Attr.type_ "text"
                   , onInput PageToWord
                   , Attr.value (viewPage model)
+                  , Attr.css[Tw.text_center]
                   ]
                   ++
                   getPageFieldValidOrNot model
                 )
                 []
             , Html.br[][]
-            , Html.label [ Attr.for "word", Attr.class "label" ] [Html.text "# of Words:"]
+            , Html.label [ Attr.for "word", Attr.class "label", Attr.css[Tw.text_center, Tw.font_sans] ] [Html.text "# of Words:"]
             , Html.input
                 (
                   [ Attr.name "word"
                   , Attr.type_ "text"
                   , onInput WordToPage
                   , Attr.value (viewWord model)
+                  , Attr.css[Tw.text_center]
                   ]
                   ++
                   getWordFieldValidOrNot model

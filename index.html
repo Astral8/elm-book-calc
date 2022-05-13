@@ -6120,7 +6120,7 @@ var $author$project$Main$update = F2(
 			if (_v1.$ === 'Nothing') {
 				return _Utils_update(
 					model,
-					{pageFieldValid: false, pageFieldValue: userInput});
+					{pageFieldValid: true, pageFieldValue: '0'});
 			} else {
 				var number = _v1.a;
 				return _Utils_update(
@@ -6139,7 +6139,7 @@ var $author$project$Main$update = F2(
 			if (_v2.$ === 'Nothing') {
 				return _Utils_update(
 					model,
-					{wordFieldValid: false, wordFieldValue: userInput});
+					{wordFieldValid: true, wordFieldValue: '0'});
 			} else {
 				var number = _v2.a;
 				return _Utils_update(
@@ -6171,22 +6171,22 @@ var $rtfeldman$elm_css$Css$property = F2(
 		return $rtfeldman$elm_css$Css$Preprocess$AppendProperty(
 			$rtfeldman$elm_css$Css$Structure$Property(key + (':' + value)));
 	});
-var $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$align_middle = A2($rtfeldman$elm_css$Css$property, 'vertical-align', 'middle');
+var $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$align_text_top = A2($rtfeldman$elm_css$Css$property, 'vertical-align', 'text-top');
 var $rtfeldman$elm_css$Css$Preprocess$ApplyStyles = function (a) {
 	return {$: 'ApplyStyles', a: a};
 };
 var $rtfeldman$elm_css$Css$batch = $rtfeldman$elm_css$Css$Preprocess$ApplyStyles;
-var $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$bg_green_400 = $rtfeldman$elm_css$Css$batch(
+var $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$bg_blue_100 = $rtfeldman$elm_css$Css$batch(
 	_List_fromArray(
 		[
 			A2($rtfeldman$elm_css$Css$property, '--tw-bg-opacity', '1'),
-			A2($rtfeldman$elm_css$Css$property, 'background-color', 'rgba(52, 211, 153, var(--tw-bg-opacity))')
+			A2($rtfeldman$elm_css$Css$property, 'background-color', 'rgba(219, 234, 254, var(--tw-bg-opacity))')
 		]));
-var $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$bg_white = $rtfeldman$elm_css$Css$batch(
+var $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$bg_blue_500 = $rtfeldman$elm_css$Css$batch(
 	_List_fromArray(
 		[
 			A2($rtfeldman$elm_css$Css$property, '--tw-bg-opacity', '1'),
-			A2($rtfeldman$elm_css$Css$property, 'background-color', 'rgba(255, 255, 255, var(--tw-bg-opacity))')
+			A2($rtfeldman$elm_css$Css$property, 'background-color', 'rgba(59, 130, 246, var(--tw-bg-opacity))')
 		]));
 var $rtfeldman$elm_css$VirtualDom$Styled$Node = F3(
 	function (a, b, c) {
@@ -6215,7 +6215,6 @@ var $rtfeldman$elm_css$Html$Styled$Attributes$stringProperty = F2(
 			$elm$json$Json$Encode$string(string));
 	});
 var $rtfeldman$elm_css$Html$Styled$Attributes$class = $rtfeldman$elm_css$Html$Styled$Attributes$stringProperty('className');
-var $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$content_center = A2($rtfeldman$elm_css$Css$property, 'align-content', 'center');
 var $elm$core$List$any = F2(
 	function (isOkay, list) {
 		any:
@@ -7737,6 +7736,38 @@ var $rtfeldman$elm_css$Html$Styled$Internal$css = function (styles) {
 };
 var $rtfeldman$elm_css$Html$Styled$Attributes$css = $rtfeldman$elm_css$Html$Styled$Internal$css;
 var $rtfeldman$elm_css$Html$Styled$div = $rtfeldman$elm_css$Html$Styled$node('div');
+var $rtfeldman$elm_css$Css$Structure$Child = {$: 'Child'};
+var $rtfeldman$elm_css$Css$Preprocess$NestSnippet = F2(
+	function (a, b) {
+		return {$: 'NestSnippet', a: a, b: b};
+	});
+var $rtfeldman$elm_css$Css$Global$children = $rtfeldman$elm_css$Css$Preprocess$NestSnippet($rtfeldman$elm_css$Css$Structure$Child);
+var $rtfeldman$elm_css$Css$Global$selector = F2(
+	function (selectorStr, styles) {
+		return A2(
+			$rtfeldman$elm_css$VirtualDom$Styled$makeSnippet,
+			styles,
+			A2($rtfeldman$elm_css$Css$Structure$CustomSelector, selectorStr, _List_Nil));
+	});
+var $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$divide_black = $rtfeldman$elm_css$Css$batch(
+	_List_fromArray(
+		[
+			$rtfeldman$elm_css$Css$Global$children(
+			_List_fromArray(
+				[
+					A2(
+					$rtfeldman$elm_css$Css$Global$selector,
+					':not([hidden]) ~ :not([hidden])',
+					_List_fromArray(
+						[
+							A2($rtfeldman$elm_css$Css$property, '--tw-divide-opacity', '1'),
+							A2($rtfeldman$elm_css$Css$property, 'border-color', 'rgba(0, 0, 0, var(--tw-divide-opacity))')
+						]))
+				]))
+		]));
+var $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$flex = A2($rtfeldman$elm_css$Css$property, 'display', 'flex');
+var $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$flex_col = A2($rtfeldman$elm_css$Css$property, 'flex-direction', 'column');
+var $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$font_sans = A2($rtfeldman$elm_css$Css$property, 'font-family', 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"');
 var $rtfeldman$elm_css$Html$Styled$Attributes$for = $rtfeldman$elm_css$Html$Styled$Attributes$stringProperty('htmlFor');
 var $author$project$Main$getPageFieldValidOrNot = function (model) {
 	return model.pageFieldValid ? _List_fromArray(
@@ -7762,6 +7793,13 @@ var $rtfeldman$elm_css$Html$Styled$input = $rtfeldman$elm_css$Html$Styled$node('
 var $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$items_center = A2($rtfeldman$elm_css$Css$property, 'align-items', 'center');
 var $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$justify_center = A2($rtfeldman$elm_css$Css$property, 'justify-content', 'center');
 var $rtfeldman$elm_css$Html$Styled$label = $rtfeldman$elm_css$Html$Styled$node('label');
+var $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$min_h_screen = A2($rtfeldman$elm_css$Css$property, 'min-height', '100vh');
+var $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$my_0 = $rtfeldman$elm_css$Css$batch(
+	_List_fromArray(
+		[
+			A2($rtfeldman$elm_css$Css$property, 'margin-top', '0px'),
+			A2($rtfeldman$elm_css$Css$property, 'margin-bottom', '0px')
+		]));
 var $rtfeldman$elm_css$Html$Styled$Attributes$name = $rtfeldman$elm_css$Html$Styled$Attributes$stringProperty('name');
 var $rtfeldman$elm_css$Html$Styled$Events$alwaysStop = function (x) {
 	return _Utils_Tuple2(x, true);
@@ -7806,7 +7844,14 @@ var $rtfeldman$elm_css$Html$Styled$Events$onInput = function (tagger) {
 			A2($elm$json$Json$Decode$map, tagger, $rtfeldman$elm_css$Html$Styled$Events$targetValue)));
 };
 var $rtfeldman$elm_css$Html$Styled$p = $rtfeldman$elm_css$Html$Styled$node('p');
+var $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$rounded_full = A2($rtfeldman$elm_css$Css$property, 'border-radius', '9999px');
 var $rtfeldman$elm_css$Html$Styled$section = $rtfeldman$elm_css$Html$Styled$node('section');
+var $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$shadow = $rtfeldman$elm_css$Css$batch(
+	_List_fromArray(
+		[
+			A2($rtfeldman$elm_css$Css$property, '--tw-shadow', '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)'),
+			A2($rtfeldman$elm_css$Css$property, 'box-shadow', 'var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)')
+		]));
 var $rtfeldman$elm_css$VirtualDom$Styled$Unstyled = function (a) {
 	return {$: 'Unstyled', a: a};
 };
@@ -7831,6 +7876,7 @@ var $author$project$Main$viewPage = function (model) {
 var $author$project$Main$viewWord = function (model) {
 	return model.wordFieldValid ? $elm$core$Debug$toString(model.word) : $elm$core$Debug$toString(model.wordFieldValue);
 };
+var $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$w_52 = A2($rtfeldman$elm_css$Css$property, 'width', '13rem');
 var $author$project$Main$view = function (model) {
 	return A2(
 		$rtfeldman$elm_css$Html$Styled$section,
@@ -7838,7 +7884,7 @@ var $author$project$Main$view = function (model) {
 			[
 				$rtfeldman$elm_css$Html$Styled$Attributes$css(
 				_List_fromArray(
-					[$matheus23$elm_default_tailwind_modules$Tailwind$Utilities$bg_white, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$content_center]))
+					[$matheus23$elm_default_tailwind_modules$Tailwind$Utilities$min_h_screen, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$my_0, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$bg_blue_100]))
 			]),
 		_List_fromArray(
 			[
@@ -7848,7 +7894,7 @@ var $author$project$Main$view = function (model) {
 					[
 						$rtfeldman$elm_css$Html$Styled$Attributes$css(
 						_List_fromArray(
-							[$matheus23$elm_default_tailwind_modules$Tailwind$Utilities$bg_white, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$items_center, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$align_middle, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$justify_center, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$content_center]))
+							[$matheus23$elm_default_tailwind_modules$Tailwind$Utilities$my_0, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$min_h_screen, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$flex, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$flex_col, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$items_center, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$align_text_top, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$justify_center]))
 					]),
 				_List_fromArray(
 					[
@@ -7858,11 +7904,11 @@ var $author$project$Main$view = function (model) {
 							[
 								$rtfeldman$elm_css$Html$Styled$Attributes$css(
 								_List_fromArray(
-									[$matheus23$elm_default_tailwind_modules$Tailwind$Utilities$text_center, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$bg_green_400, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$text_blue_100]))
+									[$matheus23$elm_default_tailwind_modules$Tailwind$Utilities$font_sans, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$rounded_full, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$w_52, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$divide_black, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$shadow, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$my_0, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$text_center, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$bg_blue_500, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$text_blue_100]))
 							]),
 						_List_fromArray(
 							[
-								$rtfeldman$elm_css$Html$Styled$text('Book Calculator')
+								$rtfeldman$elm_css$Html$Styled$text(' Book Calculator ')
 							])),
 						A2(
 						$rtfeldman$elm_css$Html$Styled$h2,
@@ -7878,7 +7924,7 @@ var $author$project$Main$view = function (model) {
 									[
 										$rtfeldman$elm_css$Html$Styled$Attributes$css(
 										_List_fromArray(
-											[$matheus23$elm_default_tailwind_modules$Tailwind$Utilities$text_center]))
+											[$matheus23$elm_default_tailwind_modules$Tailwind$Utilities$text_center, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$font_sans]))
 									]),
 								_List_fromArray(
 									[
@@ -7894,7 +7940,7 @@ var $author$project$Main$view = function (model) {
 								$rtfeldman$elm_css$Html$Styled$Attributes$class('label'),
 								$rtfeldman$elm_css$Html$Styled$Attributes$css(
 								_List_fromArray(
-									[$matheus23$elm_default_tailwind_modules$Tailwind$Utilities$justify_center]))
+									[$matheus23$elm_default_tailwind_modules$Tailwind$Utilities$text_center, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$font_sans]))
 							]),
 						_List_fromArray(
 							[
@@ -7909,7 +7955,10 @@ var $author$project$Main$view = function (model) {
 									$rtfeldman$elm_css$Html$Styled$Attributes$type_('text'),
 									$rtfeldman$elm_css$Html$Styled$Events$onInput($author$project$Main$PageToWord),
 									$rtfeldman$elm_css$Html$Styled$Attributes$value(
-									$author$project$Main$viewPage(model))
+									$author$project$Main$viewPage(model)),
+									$rtfeldman$elm_css$Html$Styled$Attributes$css(
+									_List_fromArray(
+										[$matheus23$elm_default_tailwind_modules$Tailwind$Utilities$text_center]))
 								]),
 							$author$project$Main$getPageFieldValidOrNot(model)),
 						_List_Nil),
@@ -7919,7 +7968,10 @@ var $author$project$Main$view = function (model) {
 						_List_fromArray(
 							[
 								$rtfeldman$elm_css$Html$Styled$Attributes$for('word'),
-								$rtfeldman$elm_css$Html$Styled$Attributes$class('label')
+								$rtfeldman$elm_css$Html$Styled$Attributes$class('label'),
+								$rtfeldman$elm_css$Html$Styled$Attributes$css(
+								_List_fromArray(
+									[$matheus23$elm_default_tailwind_modules$Tailwind$Utilities$text_center, $matheus23$elm_default_tailwind_modules$Tailwind$Utilities$font_sans]))
 							]),
 						_List_fromArray(
 							[
@@ -7934,7 +7986,10 @@ var $author$project$Main$view = function (model) {
 									$rtfeldman$elm_css$Html$Styled$Attributes$type_('text'),
 									$rtfeldman$elm_css$Html$Styled$Events$onInput($author$project$Main$WordToPage),
 									$rtfeldman$elm_css$Html$Styled$Attributes$value(
-									$author$project$Main$viewWord(model))
+									$author$project$Main$viewWord(model)),
+									$rtfeldman$elm_css$Html$Styled$Attributes$css(
+									_List_fromArray(
+										[$matheus23$elm_default_tailwind_modules$Tailwind$Utilities$text_center]))
 								]),
 							$author$project$Main$getWordFieldValidOrNot(model)),
 						_List_Nil)
